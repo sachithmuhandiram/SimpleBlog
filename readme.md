@@ -1,3 +1,11 @@
+#Simple Blog
+This is a simple blog create using Laravel-5.2 framework, still underconstruction.  
+
+I will be developing the back-end of the system, so simple UIs will be used.  
+
+MySql is used as the database system here.
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
