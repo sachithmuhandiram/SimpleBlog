@@ -13,6 +13,11 @@ class BlogController extends Controller
 	{
 		return view('Articals::index');
 	}
+
+	public function artical()
+	{
+		return view('Articals::artical');
+	}
 }
 
 ?>
