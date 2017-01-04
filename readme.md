@@ -5,6 +5,8 @@ I will be developing the back-end of the system, so simple UIs will be used.
 
 MySql is used as the database system here.
 
+For doing moduling in this project, I follwed this great artical. http://kamranahmed.info/blog/2015/12/03/creating-a-modular-application-in-laravel/
+
 
 # Laravel PHP Framework
 
