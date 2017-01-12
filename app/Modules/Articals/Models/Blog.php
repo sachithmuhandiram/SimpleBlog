@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
      protected $fillable = [
-        'blog_title', 'blog_post', 'password','likes','dislikes','user_id','comment_id'
+        'blog_title', 'blog_post','likes','dislikes','user_id'
     	];
 
 
@@ -15,7 +15,4 @@ class Blog extends Model
     	return $this->belogsTo('App\User');
     }
 
-    public function comment(){
-    	return $this->hasMany('App\Comment');
-    }
 }

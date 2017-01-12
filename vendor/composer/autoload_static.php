@@ -265,6 +265,7 @@ class ComposerStaticInit7f83d133883a54d8090197a295843d6e
     );
 
     public static $classMap = array (
+        'AddBlogidToComments' => __DIR__ . '/../..' . '/database/migrations/2017_01_12_152210_add_blogid_to_comments.php',
         'CreateBlogTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_22_072446_create_blog_table.php',
         'CreateCommentTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_22_062853_create_comment_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

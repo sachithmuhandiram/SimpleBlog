@@ -17,7 +17,6 @@ class CreateBlogTable extends Migration
             $table->string('blog_title');
             $table->text('blog_post');
             $table->integer('user_id')->unsigned();
-            $table->integer('comment_id')->unsigned();
             $table->integer('likes');
             $table->integer('dislikes');
             $table->timestamps();
@@ -27,10 +26,7 @@ class CreateBlogTable extends Migration
                     ->on('users')
                     ->onDelete('cascade');
 
-            $table->foreign('comment_id')
-                    ->references('id')
-                    ->on('comments')
-                    ->onDelete('cascade');
+            
         });
     }
 
