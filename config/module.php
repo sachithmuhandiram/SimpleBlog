@@ -4,6 +4,7 @@
 		'modules'=>[
 			'Articals',
 			'Authors',
+		
 		]
 	];
 
