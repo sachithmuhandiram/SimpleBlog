@@ -11,19 +11,6 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function ()
-{
-    Route::auth();
-
-    Route::get('/',function(){
-         return view('auth.login');
-    }); 
-
-    Route::post('/login','AuthenticationController@userLogin');
-
-  });
-
-
-Route::get('/home', function(){
-	return 'hello';
+Route::get('/', function () {
+    return view('welcome');
 });
