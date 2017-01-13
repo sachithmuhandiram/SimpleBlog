@@ -8,6 +8,9 @@ Route::group(['namespace' => 'App\Modules\Articals\Controllers'], function () {
 	Route::get('blog', ['uses' => 'BlogController@index']);
 	Route::get('artical', ['uses' => 'BlogController@artical']);
 	//this will have to update into artical/artical_id
+	Route::get('addartical', ['uses' => 'BlogController@addArtical']);
+	Route::post('addpost', ['uses' => 'BlogController@addPost']);
+	
 });
 
 
