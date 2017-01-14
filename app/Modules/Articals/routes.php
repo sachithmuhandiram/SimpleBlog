@@ -10,6 +10,9 @@ Route::group(['namespace' => 'App\Modules\Articals\Controllers'], function () {
 	//this will have to update into artical/artical_id
 	Route::get('addartical', ['uses' => 'BlogController@addArtical']);
 	Route::post('addpost', ['uses' => 'BlogController@addPost']);
+
+	Route::get('blog/{id}/like',['uses' => 'BlogController@likePost']);
+	Route::get('blog/{id}/dislike',['uses' => 'BlogController@dislikePost']);
 	
 });
 

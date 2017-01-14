@@ -16,8 +16,10 @@ use App\Modules\Articals\Models\Blog; //to use Blog::create
 class BlogController extends Controller
 {
 	public function index()
-	{
-		return view('Articals::index');
+	{  //update to view posts
+        $blog = Blog::all();
+        //return $blog;
+		return view('Articals::index')->with('blog',$blog);
 	}
 
 	public function artical()
@@ -55,12 +57,42 @@ class BlogController extends Controller
                 throw new \Exception('Blog post could not created ');
             }
 
-        	});
+            });
          
           return redirect('blog');
           
     }
 	
+    public function likePost($id)
+    {
+        $likes = Blog::where('id','=',$id)
+                        ->pluck('likes');
+                        
+        $new_likes = $likes[0]+1;
+
+        $like = Blog::where('id','=',$id)
+                        ->update(['likes'=>$new_likes]);
+
+        return redirect('blog');
+
+        
+    }
+
+    public function dislikePost($id)
+    {
+        $dislikes = Blog::where('id','=',$id)
+                        ->pluck('dislikes');
+                       
+        $new_dislikes = $dislikes[0]+1;
+
+        $dislike = Blog::where('id','=',$id)
+                        ->update(['dislikes'=>$new_dislikes]);
+
+        return redirect('blog');
+
+        
+    }
+
 }
 
 ?>
