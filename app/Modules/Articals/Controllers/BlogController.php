@@ -16,11 +16,10 @@ use App\Modules\Articals\Models\Blog; //to use Blog::create
 class BlogController extends Controller
 {
 	public function index()
-	{  //update to view posts
+    {  //update to view posts
         $blog = Blog::all();
-        //return $blog;
-		return view('Articals::index')->with('blog',$blog);
-	}
+        return view('Articals::index')->with('blog',$blog);
+    }
 
 	public function artical()
 	{
@@ -73,7 +72,7 @@ class BlogController extends Controller
         $like = Blog::where('id','=',$id)
                         ->update(['likes'=>$new_likes]);
 
-        return redirect('blog');
+        return back();
 
         
     }
@@ -84,13 +83,21 @@ class BlogController extends Controller
                         ->pluck('dislikes');
                        
         $new_dislikes = $dislikes[0]+1;
-
         $dislike = Blog::where('id','=',$id)
                         ->update(['dislikes'=>$new_dislikes]);
 
-        return redirect('blog');
+        return back();
 
         
+    }
+
+    public function showPost($blog_id){
+        
+        $post = Blog::where('id','=',$blog_id)
+                        ->firstOrFail();
+                       
+
+        return view('Articals::post')->with('post',$post);
     }
 
 }

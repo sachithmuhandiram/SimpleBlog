@@ -13,6 +13,8 @@ Route::group(['namespace' => 'App\Modules\Articals\Controllers'], function () {
 
 	Route::get('blog/{id}/like',['uses' => 'BlogController@likePost']);
 	Route::get('blog/{id}/dislike',['uses' => 'BlogController@dislikePost']);
+
+	Route::get('blog/{blog_id}',['uses' => 'BlogController@showPost']);
 	
 });
 
