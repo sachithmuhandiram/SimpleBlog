@@ -15,6 +15,6 @@ class Comment extends Model
    }
 
    public function blog(){
-   		return $this->hasOne('App\Blog');
+   		return $this->hasOne('App\Modules\Articals\Models\Blog');
    }
 }

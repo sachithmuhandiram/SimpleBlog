@@ -30,8 +30,8 @@
 		                   
 								<p>{{$post->blog_post}}</p> 
 								<br>
-								<a href={{$post->id}}/like  name="like" class="btn btn-info btn-xs"> Likes ({{$post->likes}})</a> 
-								<a href={{$post->id}}/dislike name="dislike" class="btn btn-warning btn-xs"> Dislikes ({{$post->dislikes}})</a>
+								<a href={{$post->id}}/like  name="like" class="btn btn-info btn-xs"> Likes ({{$likes}})</a> 
+								<a href={{$post->id}}/dislike name="dislike" class="btn btn-warning btn-xs"> Dislikes ({{$dislikes}})</a>
 							
 		                </div>
 	            </div>

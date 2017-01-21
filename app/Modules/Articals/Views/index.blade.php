@@ -29,10 +29,12 @@
 	                <div class="panel-heading">Blog posts <a href="addartical" class="col-md-offset-9"> Add a Post</a> </div>
 		                <div class="panel-body">
 		                    @foreach($blog as $posts)
-								<h3><a href= "blog/{{$posts->id}}" > {{$posts->blog_title}}</a></h3>
+								<h3><a href= "blog/{{$posts->blog_title}}" > {{$posts->blog_title}}</a></h3>
 								<p>{{$posts->blog_post}}</p> <!--put a p class and make this is fixed size.-->
+								<!--
 								<a href=blog/{{$posts->id}}/like  name="like" class="btn btn-info btn-xs"> Likes ({{$posts->likes}})</a> 
 								<a href=blog/{{$posts->id}}/dislike name="dislike" class="btn btn-warning btn-xs"> Dislikes ({{$posts->dislikes}})</a>
+								-->
 								
 								<br>
 							@endforeach

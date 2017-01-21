@@ -16,6 +16,7 @@ class ComposerStaticInit7f83d133883a54d8090197a295843d6e
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -67,6 +68,7 @@ class ComposerStaticInit7f83d133883a54d8090197a295843d6e
         ),
         'I' => 
         array (
+            'Illuminate\\Html\\' => 16,
             'Illuminate\\' => 11,
         ),
         'F' => 
@@ -192,6 +194,10 @@ class ComposerStaticInit7f83d133883a54d8090197a295843d6e
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
+        'Illuminate\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/html',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -270,6 +276,8 @@ class ComposerStaticInit7f83d133883a54d8090197a295843d6e
         'CreateCommentTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_22_062853_create_comment_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
+        'CreateVoteType' => __DIR__ . '/../..' . '/database/migrations/2017_01_20_033302_create_vote_type.php',
+        'CreateVotes' => __DIR__ . '/../..' . '/database/migrations/2017_01_20_034138_create_votes.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

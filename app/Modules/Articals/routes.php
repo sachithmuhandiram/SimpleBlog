@@ -3,6 +3,17 @@
 	here Views controller's namespace is defined. and module is considered as a group.
 	all the routes related to that module go inside this group as normal routes.
 */
+	/*
+		* Route::group(['middleware' => ['web']], function ()
+			{ ----- });
+		  This was used to show validation errors in the forms.
+
+		* Controller should have, this
+			use Illuminate\View\Middleware\ShareErrorsFromSession;
+			
+	*/
+Route::group(['middleware' => ['web']], function ()
+{
 
 Route::group(['namespace' => 'App\Modules\Articals\Controllers'], function () {
 	Route::get('blog', ['uses' => 'BlogController@index']);
@@ -16,6 +27,8 @@ Route::group(['namespace' => 'App\Modules\Articals\Controllers'], function () {
 
 	Route::get('blog/{blog_id}',['uses' => 'BlogController@showPost']);
 	
+});
+
 });
 
 

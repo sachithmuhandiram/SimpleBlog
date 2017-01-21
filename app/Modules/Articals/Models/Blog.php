@@ -15,4 +15,12 @@ class Blog extends Model
     	return $this->belogsTo('App\User');
     }
 
+    public function comment(){
+    	return $this->hasMany('App\Modules\Articals\Models\Comment');
+    }
+
+    public function vote(){
+    	return $this->hasMany('App\Modules\Articals\Models\Vote');
+    }
+
 }

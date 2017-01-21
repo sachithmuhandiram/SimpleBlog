@@ -35,16 +35,16 @@
                             	<label for="blog_title" class="col-md-4 control-label">Title</label>
 
 	                            <div class="col-md-6">
-	                                <input id="blog_title" type="text" class="form-control" name="blog_title" value="">
+	                                <input id="blog_title" type="text" class="form-control" name="blog_title" value="{{Input::old('blog_title')}}" >
 
 	                            </div>
                         	</div>
 
                         	<div class="form-group">
-                            	<label for="blog" class="col-md-4 control-label">Post</label>
+                            	<label for="blog_post" class="col-md-4 control-label">Post</label>
 
 	                            <div class="col-md-6">
-	                                <textarea rows="4" cols="50" name="blog" placeholder="Enter your Post" > </textarea>
+	                                <textarea rows="4" cols="50" name="blog_post" placeholder="Enter your Post">{{Input::old('blog_post')}} </textarea>
 
 	                            </div>
                         	</div>
@@ -58,6 +58,17 @@
 
 	                        
 	                    </form>
+	                    <br><br>
+	                    <!--Error message showing blog-->
+	                    @if (count($errors) > 0)
+	                        <div class="alert alert-danger">
+	                            <ul>
+	                                @foreach ($errors->all() as $error)
+	                                    <li>{{ $error }}</li>
+	                                @endforeach
+	                            </ul>
+	                        </div>
+	                    @endif
 	                </div>
 	            </div>
 	        </div>
