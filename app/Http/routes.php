@@ -23,6 +23,13 @@ Route::get('/home', function(){
 });
 
 Route::post('login','AuthenticationController@userLogin');
+//from post to login
+Route::get('log', function () { 	//this must come with js.
+    return view('auth.loguser');
+});
+Route::post('loguser','AuthenticationController@logUser');
+
+
 
 }
 );

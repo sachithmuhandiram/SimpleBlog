@@ -12,6 +12,6 @@ class Votetype extends Model
 
 
    public function vote(){
-   		return $this->hasOne('App\Modules\Articals\Models\Vote');
+   		return $this->hasMany('App\Modules\Articals\Models\Vote');
    }
 }

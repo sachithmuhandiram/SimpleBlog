@@ -26,6 +26,8 @@ Route::group(['namespace' => 'App\Modules\Articals\Controllers'], function () {
 	Route::get('blog/{id}/dislike',['uses' => 'BlogController@dislikePost']);
 
 	Route::get('blog/{blog_id}',['uses' => 'BlogController@showPost']);
+
+	Route::post('addcomment', ['uses' => 'BlogController@addComment']);
 	
 });
 

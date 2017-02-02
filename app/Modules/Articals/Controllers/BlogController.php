@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Modules\Articals\Models\Blog; //to use Blog::create
 use App\Modules\Articals\Models\Vote; //to vote Vote::create
 use App\Modules\Articals\Models\Votetype; //to vote Vote::create
+use App\Modules\Articals\Models\Comment; //to comment Comment::create
 
 
 class BlogController extends Controller
@@ -23,6 +24,7 @@ class BlogController extends Controller
     {  //update to view posts
         $blog = Blog::all();
         //likes for individual post?
+        //$blog =substr('.$blogs.',0,500); //return only 500 words
         return view('Articals::index')->with('blog',$blog);
     }
 
@@ -33,7 +35,14 @@ class BlogController extends Controller
 
 	public function addArtical()
 	{
-		return view('Articals::add_artical');
+    if (Auth::user()) { //if user is logged in
+      return view('Articals::add_artical');
+
+    } else {
+      return redirect('blog')->with(['warn'=>'You must login to add a blog']);
+    }
+    
+		
 	}
 
 	public function addPost(Request $request)//Request $request
@@ -85,6 +94,10 @@ class BlogController extends Controller
         $type = Votetype::where('votetype','=','likes')
                             ->pluck('id');
 
+        if (!(Auth::user())) {
+          return back()->with(['warn'=>'You must login to vote for a post']);
+        } else {
+
         $user_id = Auth::user()->id;
 
         /*
@@ -109,6 +122,8 @@ class BlogController extends Controller
         } else {
             return back();
         }
+
+      } //user auth checking if loop
         
     }
 
@@ -117,6 +132,9 @@ class BlogController extends Controller
         $type = Votetype::where('votetype','=','dislikes')
                             ->pluck('id');
                         
+        if (!(Auth::user())) {
+          return back()->with(['warn'=>'You must login to vote for a post']);
+        } else {
 
         $user_id = Auth::user()->id;
 
@@ -137,6 +155,7 @@ class BlogController extends Controller
         } else {
             return back();
         }
+      } //end of main auth user if
         
             
 
@@ -160,9 +179,41 @@ class BlogController extends Controller
         $dislikes = Vote::where('post_id','=',$blog_id[0])
                         ->where('type_id','=',2)
                         ->get()
-                        ->count();     
+                        ->count(); 
 
-        return view('Articals::post')->with('post',$post)->with('likes',$likes)->with('dislikes',$dislikes);
+        $comment  = Comment::where('blog_id','=',$blog_id[0])
+                                ->get();  
+
+        return view('Articals::post')->with('post',$post)->with('likes',$likes)->with('dislikes',$dislikes)->with('comment',$comment);
+    }
+
+    public function addComment(Request $request){
+
+        $this->validate($request,[
+          'comment' => 'required|min:2|max:255'  
+        ]);
+
+       //user_id, blog_id
+        DB::transaction(function(){
+            
+           $comment = Comment::create([
+           'comment' => Input::get('comment'),
+           'blog_id' =>Input::get('blog_id'),
+           'user_id' => Input::get('user_id'), 
+           'created_at'=>Carbon\Carbon::now()
+           ]);//$request->all()
+        
+        
+
+          if( !$comment )
+          {
+              throw new \Exception('Comment was not posted');
+          }
+
+          });
+        
+        return back();
+        
     }
 
 }

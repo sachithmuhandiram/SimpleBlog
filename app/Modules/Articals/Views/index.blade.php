@@ -25,16 +25,26 @@
 	<div class="container">
 	    <div class="row">
 	        <div class="col-md-12 col-md-offset-0">
-	            <div class="panel panel-default">
-	                <div class="panel-heading">Blog posts <a href="addartical" class="col-md-offset-9"> Add a Post</a> </div>
-		                <div class="panel-body">
+	            <div class="panel panel-default" style="max-height:2500px; overflow-y: scroll;">
+	                <div class="panel-heading">Blog posts <a href="addartical" class="col-md-offset-9"> Add a Post</a> &emsp;&emsp;
+	                @if(Auth::user())
+	                <a href="logout" class="">Logout </a>
+	                @else
+	                <a href="{{url('/')}}" class="">Login </a>
+	                @endif
+	                </div>
+	                	<!--Error if user is not loged in -->
+	                	@if(Session::has('warn'))
+	                	<div class="row">
+	                	      <div class="col-md-3 col-md-offset-4 warning" style="background-color: #ff6666; text-align: center;">
+	                	          {{Session::get('warn')}}
+	                	      </div>
+	                	 </div>          
+	                	@endif
+		                <div class="panel-body" style="height: 1500px; white-space: normal;verflow: hidden;text-overflow: ellipsis;">
 		                    @foreach($blog as $posts)
 								<h3><a href= "blog/{{$posts->blog_title}}" > {{$posts->blog_title}}</a></h3>
 								<p>{{$posts->blog_post}}</p> <!--put a p class and make this is fixed size.-->
-								<!--
-								<a href=blog/{{$posts->id}}/like  name="like" class="btn btn-info btn-xs"> Likes ({{$posts->likes}})</a> 
-								<a href=blog/{{$posts->id}}/dislike name="dislike" class="btn btn-warning btn-xs"> Dislikes ({{$posts->dislikes}})</a>
-								-->
 								
 								<br>
 							@endforeach

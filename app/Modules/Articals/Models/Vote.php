@@ -21,6 +21,6 @@ class Vote extends Model
    }
 
     public function user(){
-   		return $this->hasOne('App\User');
+   		return $this->belogsTo('App\User');
    }
 }

@@ -53,7 +53,23 @@ class AuthenticationController extends Controller
           			
                return redirect('blog');
               
-			}
+			       }
     }
+
+    //for post
+        public function logUser(Request $request)
+        {
+
+              $this->validate($request,[
+                'email' => 'required|email',
+                'password' => 'required'
+              ]);
+
+                if(Auth::attempt(['email'=>$request['email'],'password'=>$request['password']])){
+                    
+                   return URL::previouse();
+                  
+                 }
+        }
 
 }

@@ -44,7 +44,7 @@
                             	<label for="blog_post" class="col-md-4 control-label">Post</label>
 
 	                            <div class="col-md-6">
-	                                <textarea rows="4" cols="50" name="blog_post" placeholder="Enter your Post">{{Input::old('blog_post')}} </textarea>
+	                                <textarea rows="10" cols="50" name="blog_post" placeholder="Enter your Post">{{Input::old('blog_post')}} </textarea>
 
 	                            </div>
                         	</div>
