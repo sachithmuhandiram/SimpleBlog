@@ -1,5 +1,5 @@
 #Simple Blog
-This is a simple blog create using Laravel-5.2 framework, still underconstruction.  
+This is a simple blog create using Laravel-5.2 framework, still under construction.  
 
 I will be developing the back-end of the system, so simple UIs will be used.  
 
