@@ -18,3 +18,4 @@ class Comment extends Model
    		return $this->hasOne('App\Modules\Articals\Models\Blog');
    }
 }
+?>

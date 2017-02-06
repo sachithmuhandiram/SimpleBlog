@@ -2,6 +2,7 @@
 
 namespace App\Modules\Authors\Controllers;
 use Illuminate\Http\Request;
+use App\User; //to comment Comment::create
 
 use App\Http\Controllers\Controller;
 
@@ -9,10 +10,15 @@ use App\Http\Controllers\Controller;
 
 class AuthorsController extends Controller
 {
-	public function index()
+	public function index($fname)
 	{
-		return view('Authors::index');
+		$author = User::where('name','=',$fname)
+							->get();
+
+		return view('Authors::index')->with('author',$author);
 	}
+
+
 }
 
 ?>

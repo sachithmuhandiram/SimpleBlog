@@ -42,7 +42,14 @@ class AuthenticationController extends Controller
     }
 
     public function userLogin(Request $request)
-    {
+    {     
+          /*
+              * User Loging is done here
+              * Validation rules check whether user entered an email address and password
+              * Laravel does the DB access to users table in this,
+                Auth::attempt(['email'=>$request['email'],'password'=>$request['password']])
+
+          */
 
           $this->validate($request,[
             'email' => 'required|email',
@@ -56,9 +63,9 @@ class AuthenticationController extends Controller
 			       }
     }
 
-    //for post
+/*
         public function logUser(Request $request)
-        {
+        {     
 
               $this->validate($request,[
                 'email' => 'required|email',
@@ -67,9 +74,20 @@ class AuthenticationController extends Controller
 
                 if(Auth::attempt(['email'=>$request['email'],'password'=>$request['password']])){
                     
-                   return URL::previouse();
+                   return redirect('blog');//URL::previouse();
                   
                  }
         }
+        */
+
+        public function logoutUser()
+        {
+          
+           Auth::logout();
+           Session::flush();
+           return redirect('blog');
+        }
+
+
 
 }

@@ -28,7 +28,7 @@
 	            <div class="panel panel-default" style="max-height:2500px; overflow-y: scroll;">
 	                <div class="panel-heading">Blog posts <a href="addartical" class="col-md-offset-9"> Add a Post</a> &emsp;&emsp;
 	                @if(Auth::user())
-	                <a href="logout" class="">Logout </a>
+	                <a href="{{url ('logout')}}" class="">Logout </a>
 	                @else
 	                <a href="{{url('/')}}" class="">Login </a>
 	                @endif

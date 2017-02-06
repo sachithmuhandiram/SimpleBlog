@@ -120,7 +120,7 @@ class BlogController extends Controller
                         ]);
             return back();
         } else {
-            return back();
+            return back()->with(['warn'=>'You voted for this post']);
         }
 
       } //user auth checking if loop
@@ -153,7 +153,7 @@ class BlogController extends Controller
                             ]);
             return back();
         } else {
-            return back();
+            return back()->with(['warn'=>'You voted for this post']);;
         }
       } //end of main auth user if
         

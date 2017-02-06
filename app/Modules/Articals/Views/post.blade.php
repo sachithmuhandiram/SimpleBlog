@@ -29,7 +29,7 @@
 	                			<a href="{{ url('blog') }}" class="btn-xs col-md-offset-8">Home</a>
 
 	                			@if(Auth::user())
-	                			<a href="logout" class="">Logout </a>
+	                			<a href="{{url ('logout')}}" class="">Logout </a>
 	                			@else
 	                			<a href="{{url ('/')}}" class="">Login </a>
 	                			@endif			
@@ -59,7 +59,7 @@
 										    	    	<div class="panel-body" style="background-color: #ffff80;">
 										    	    		<p>{{$cmt->comment}}</p>
 										    			</div>
-										    		<div class="panel-footer" style="background-color:#99ffeb ;"> <a href="user/{{$cmt->user->name}}">{{$cmt->user->name}}</a></div><br>
+										    		<div class="panel-footer" style="background-color:#99ffeb ;"> <a href= "author/{{$cmt->user->name}}">{{$cmt->user->name}}</a></div><br>
 
 									    		@endforeach	
 									    	</div> 

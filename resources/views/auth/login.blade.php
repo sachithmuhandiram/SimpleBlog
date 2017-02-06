@@ -7,6 +7,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
+                    @if(Session::has('warn'))
+                    <div class="row">
+                          <div class="col-md-3 col-md-offset-4 warning" style="background-color: #ff6666; text-align: center;">
+                              {{Session::get('warn')}}
+                          </div>
+                     </div>          
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 

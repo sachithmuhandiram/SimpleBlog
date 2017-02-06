@@ -18,10 +18,6 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', function(){
-	return 'hello, authentication tested';
-});
-
 Route::post('login','AuthenticationController@userLogin');
 //from post to login
 Route::get('log', function () { 	//this must come with js.
@@ -29,7 +25,7 @@ Route::get('log', function () { 	//this must come with js.
 });
 Route::post('loguser','AuthenticationController@logUser');
 
-
+Route::get('logout', 'AuthenticationController@logoutUser');
 
 }
 );
